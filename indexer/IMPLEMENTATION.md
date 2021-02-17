@@ -88,7 +88,7 @@ Lastly, the following function from `word.c`, another module located in the ../c
 ```
 void NormalizeWord(char *word);
 ```
-Normalize word takes the parameter `word` and converts it to lowercase.
+NormalizeWord takes the parameter `word` and converts it to lowercase.
 
 ### Data Structures
 the crawler makes use of the hashtable, set, counters, and webpage data structures.

@@ -6,6 +6,10 @@
 Hashtable size was set to 100, under the assumption it is a good size for most of the testing.
 For an exceedingly large index from a massive crawl, a larger or smaller hashtable size may be preferred. 
 
+indextest only checks the parameter count. The first parameter is assumed to be a file produced by the indexer.
+
+the indexer reads from the ../data directory which is written to by the crawler module.
+
 Beyond these, assumptions should follow the guidelines detailed for the indexer
 
 ### Compilation
