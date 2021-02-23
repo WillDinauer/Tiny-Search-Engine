@@ -150,8 +150,9 @@ void counters_print(counters_t *ctrs, FILE *fp)
                 } 
             }
             fputc('}', fp);
+            fputc('\n', fp);
         } else {
-            fputs("(null)", fp);
+            fputs("(null)\n", fp);
         }
     }
 }
@@ -180,8 +181,8 @@ void counters_delete(counters_t *ctrs)
             count_free(node);               // free the current node
             node = next;                    // traverse to the next node
         }
+        count_free(ctrs); // free the overall counters data structure
     }
-    count_free(ctrs);   //free the overall counters data structure
 }
 
 /**************** cntnode_new() ****************/

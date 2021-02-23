@@ -120,12 +120,13 @@ static char *getNextWord(char *line, int *pos, int len)
 {
     char* beg = &(line[*pos]);              // a pointer to the initial position
     // increment the position until the end of the line has been reached, or pos points to a space
-    while(*pos < len && (line[*pos] != '\0' || line[*pos] != ' ')) {
+    while(*pos < len && line[*pos] != '\0' && line[*pos] != ' ') {
         (*pos)++;
     }
     char* end = &(line[*pos-1]);            // pointer to the last char in the word
     int wordlen = end - beg + 1;            
     char *word = calloc(wordlen + 1, sizeof(char));
+    (*pos)++;
     if (word == NULL) {
         return NULL;
     } else {
