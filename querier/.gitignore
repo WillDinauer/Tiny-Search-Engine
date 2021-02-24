@@ -1,3 +1,5 @@
 querier
 querier.o
+fuzzquery
+fuzzquery.o
 *.dSYM

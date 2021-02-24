@@ -281,7 +281,7 @@ bool splitline(char *line, char *words[], int *numWords)
             break;
         }
         if (!isspace(line[endPos])) {  // not an alpha character, not '\0' (end of line), not a space; this must be a bad character
-            fprintf(stderr, "bad character: '%c' in query\n", line[endPos]);
+            printf("bad character: '%c' in query\n", line[endPos]);
             return false;
         }
         line[endPos] = '\0';        // update the space to '\0' to indicate the end of a word
@@ -320,7 +320,7 @@ counters_t *searchMatches(hashtable_t *index, char *words[], int numWords)
         // the word is "and"...
         if (isand(word)) {
             if (wasConj || i == numWords - 1) {      // either the previous word was "and" or "or", or this "and" is the last word in the query! This is invalid
-                fprintf(stderr, "invalid query\n");
+                printf("invalid query\n");
                 // clean-up; counters_delete will check if andSequence = NULL
                 counters_delete(result);
                 counters_delete(andSequence);
@@ -333,7 +333,7 @@ counters_t *searchMatches(hashtable_t *index, char *words[], int numWords)
             // the word is "or"...
             if (isor(word)) {
                 if (wasConj || i == numWords - 1 ) { // either the previous word was "and" or "or", or this "or" is the last word in the query! This is invalid
-                    fprintf(stderr, "invalid query\n");
+                    printf("invalid query\n");
                     counters_delete(result);
                     counters_delete(andSequence);
                     return NULL;
@@ -361,6 +361,7 @@ counters_t *searchMatches(hashtable_t *index, char *words[], int numWords)
                     andSequence = counters_new();
                     if (andSequence == NULL) {  // out of memory
                         fprintf(stderr, "out of memory\n");
+                        counters_delete(result);
                         return NULL;
                     }
 
