@@ -6,6 +6,9 @@
 the querier assumes that if the indexFilename is a readable file, it was produced by the indexer.
 this is relevant for creating the index.
 
+tests rely on the existence of a crawler directory ../data/toscrape-depth-2 and 
+an index-created file ../data/toscrape-index-2
+
 Other assumptions follow the guidelines detailed for the querier.
 
 ### Compilation
