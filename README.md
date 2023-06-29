@@ -1,8 +1,6 @@
 # William Dinauer
 ## Dartmouth CS50 Winter 2021, Tiny Search Engine
 
-GitHub username: William Dinauer
-
 To build, run `make`.
 
 To clean up, run `make clean`.
